@@ -168,14 +168,6 @@ The system validates:
 
 ---
 
-## 👩‍💻 Author
-
-**Hruthi Muggalla**  
-Master’s Student in Computer Science  
-University of Georgia
-
----
-
 ## 📜 License
 
 This project is intended for academic and research purposes.
