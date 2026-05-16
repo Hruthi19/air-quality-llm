@@ -1,0 +1,8 @@
+,Good,Hazardous,Invalid,Moderate,Unhealthy,Unhealthy for Sensitive Groups,Very Unhealthy
+Good,322,0,3,554,3,4,0
+Hazardous,0,598,0,0,6,0,78
+Invalid,0,0,0,0,0,0,0
+Moderate,58,0,4,1340,35,248,5
+Unhealthy,1,4,1,13,3041,183,124
+Unhealthy for Sensitive Groups,0,3,0,133,240,666,3
+Very Unhealthy,0,47,0,1,175,2,858

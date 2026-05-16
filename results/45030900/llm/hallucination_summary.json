@@ -1,0 +1,12 @@
+{
+  "n_explanations": 100,
+  "n_hallucinations": 0,
+  "hallucination_rate_pct": 0.0,
+  "h1_number_match_pct": 100.0,
+  "h2_aqi_match_pct": 100.0,
+  "h3_category_ok_pct": 100.0,
+  "h4_feature_ok_pct": 100.0,
+  "h5_range_ok_pct": 100.0,
+  "h6_confidence_low_pct": 0.0,
+  "mean_avg_logprob": -0.06221289579957098
+}

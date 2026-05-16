@@ -1,0 +1,166 @@
+[boot] python=3.10.4
+[boot] torch=2.11.0+cu130 cuda=13.0
+[boot] transformers=5.4.0
+[boot] cuda_available=True
+[boot]   GPU0: NVIDIA B200 sm_100 191.5 GB
+=================================================================
+  AdvSplIoT — air-quality + LLM explanation pipeline
+=================================================================
+  JOB_ID      = 45030826
+  REPO_DIR    = /scratch/sg41479/AdvSplIoT
+  RESULTS_DIR = /scratch/sg41479/AdvSplIoT/results/45030826
+  CSV_PATH    = /scratch/sg41479/AdvSplIoT/PRSA_data.csv
+  EPOCHS      = baseline=10 issa=10
+  ISSA        = pop=8 iters=6 fit_ep=1
+  LLM         = /scratch/sg41479/hf-cache/models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28  dtype=bfloat16
+  N_EXPLAN    = 100  N_QA=5
+=================================================================
+[meta] {"run_id": "45030826", "timestamp": "2026-05-08 13:41:20", "hostname": "e4-1", "device": "cuda", "torch": "2.11.0+cu130"}
+
+[1/9] loading + preprocessing dataset
+
+[2/9] mRMR + Random Forest feature selection
+[features] mRMR top-3 = ['pm25', 'pressure', 'wind']
+[features] RF importances:
+    feature  importance  importance_pct
+0      pm25    0.944604       94.460352
+1       dew    0.015933        1.593342
+2      wind    0.013785        1.378539
+3      temp    0.012949        1.294875
+4  pressure    0.012729        1.272893
+
+[3/9] naive baselines
+
+[4/9] training baseline LSTM
+[lstm_baseline] epoch 1/10 train_mse=0.004686 val_mse=0.005099
+[lstm_baseline] epoch 2/10 train_mse=0.001786 val_mse=0.001640
+[lstm_baseline] epoch 3/10 train_mse=0.001188 val_mse=0.000859
+[lstm_baseline] epoch 4/10 train_mse=0.000923 val_mse=0.000573
+[lstm_baseline] epoch 5/10 train_mse=0.000841 val_mse=0.000571
+[lstm_baseline] epoch 6/10 train_mse=0.000769 val_mse=0.000605
+[lstm_baseline] epoch 7/10 train_mse=0.000752 val_mse=0.000542
+[lstm_baseline] epoch 8/10 train_mse=0.000722 val_mse=0.000580
+[lstm_baseline] epoch 9/10 train_mse=0.000722 val_mse=0.000555
+[lstm_baseline] epoch 10/10 train_mse=0.000701 val_mse=0.000531
+
+[5/9] ISSA hyper-parameter search
+[issa_probe] epoch 1/1 train_mse=0.005929 val_mse=0.006019
+[issa_probe] epoch 1/1 train_mse=0.008501 val_mse=0.005868
+[issa_probe] epoch 1/1 train_mse=0.008464 val_mse=0.007354
+[issa_probe] epoch 1/1 train_mse=0.009207 val_mse=0.007010
+[issa_probe] epoch 1/1 train_mse=0.008567 val_mse=0.007037
+[issa_probe] epoch 1/1 train_mse=0.009854 val_mse=0.007034
+[issa_probe] epoch 1/1 train_mse=0.007134 val_mse=0.004864
+[issa_probe] epoch 1/1 train_mse=0.007882 val_mse=0.008506
+[issa_probe] epoch 1/1 train_mse=0.005440 val_mse=0.003436
+[issa_probe] epoch 1/1 train_mse=0.007361 val_mse=0.005846
+[issa_probe] epoch 1/1 train_mse=0.008706 val_mse=0.007259
+[issa_probe] epoch 1/1 train_mse=0.008699 val_mse=0.006006
+[issa_probe] epoch 1/1 train_mse=0.008910 val_mse=0.006995
+[issa_probe] epoch 1/1 train_mse=0.006615 val_mse=0.008931
+[issa_probe] epoch 1/1 train_mse=0.004385 val_mse=0.003920
+[issa_probe] epoch 1/1 train_mse=0.004793 val_mse=0.003355
+[issa_probe] epoch 1/1 train_mse=0.004078 val_mse=0.011024
+[issa] iter 1/6  best_fitness=0.003355
+[issa_probe] epoch 1/1 train_mse=0.006330 val_mse=0.004028
+[issa_probe] epoch 1/1 train_mse=0.004251 val_mse=0.001992
+[issa_probe] epoch 1/1 train_mse=0.004793 val_mse=0.003355
+[issa_probe] epoch 1/1 train_mse=0.004447 val_mse=0.004340
+[issa_probe] epoch 1/1 train_mse=0.004385 val_mse=0.003920
+[issa_probe] epoch 1/1 train_mse=0.006433 val_mse=0.006185
+[issa_probe] epoch 1/1 train_mse=0.004875 val_mse=0.003066
+[issa_probe] epoch 1/1 train_mse=0.004385 val_mse=0.003920
+[issa_probe] epoch 1/1 train_mse=0.007894 val_mse=0.003426
+[issa] iter 2/6  best_fitness=0.001992
+[issa_probe] epoch 1/1 train_mse=0.007403 val_mse=0.003152
+[issa_probe] epoch 1/1 train_mse=0.004793 val_mse=0.003355
+[issa_probe] epoch 1/1 train_mse=0.004793 val_mse=0.003355
+[issa_probe] epoch 1/1 train_mse=0.004517 val_mse=0.004280
+[issa_probe] epoch 1/1 train_mse=0.004385 val_mse=0.003920
+[issa_probe] epoch 1/1 train_mse=0.004522 val_mse=0.003150
+[issa_probe] epoch 1/1 train_mse=0.004271 val_mse=0.001819
+[issa_probe] epoch 1/1 train_mse=0.004385 val_mse=0.003920
+[issa_probe] epoch 1/1 train_mse=0.004180 val_mse=0.005510
+[issa] iter 3/6  best_fitness=0.001819
+[issa_probe] epoch 1/1 train_mse=0.004583 val_mse=0.002060
+[issa_probe] epoch 1/1 train_mse=0.004141 val_mse=0.002858
+[issa_probe] epoch 1/1 train_mse=0.004875 val_mse=0.003066
+[issa_probe] epoch 1/1 train_mse=0.004488 val_mse=0.002055
+[issa_probe] epoch 1/1 train_mse=0.004793 val_mse=0.003355
+[issa_probe] epoch 1/1 train_mse=0.004793 val_mse=0.003355
+[issa_probe] epoch 1/1 train_mse=0.004385 val_mse=0.003920
+[issa_probe] epoch 1/1 train_mse=0.004793 val_mse=0.003355
+[issa_probe] epoch 1/1 train_mse=0.004488 val_mse=0.002055
+[issa] iter 4/6  best_fitness=0.001819
+[issa_probe] epoch 1/1 train_mse=0.004488 val_mse=0.002055
+[issa_probe] epoch 1/1 train_mse=0.004488 val_mse=0.002055
+[issa_probe] epoch 1/1 train_mse=0.004488 val_mse=0.002055
+[issa_probe] epoch 1/1 train_mse=0.004488 val_mse=0.002055
+[issa_probe] epoch 1/1 train_mse=0.004222 val_mse=0.002653
+[issa_probe] epoch 1/1 train_mse=0.004793 val_mse=0.003355
+[issa_probe] epoch 1/1 train_mse=0.004793 val_mse=0.003355
+[issa_probe] epoch 1/1 train_mse=0.008060 val_mse=0.003573
+[issa_probe] epoch 1/1 train_mse=0.004488 val_mse=0.002055
+[issa] iter 5/6  best_fitness=0.001819
+[issa_probe] epoch 1/1 train_mse=0.005513 val_mse=0.001577
+[issa_probe] epoch 1/1 train_mse=0.004141 val_mse=0.002858
+[issa_probe] epoch 1/1 train_mse=0.004222 val_mse=0.002653
+[issa_probe] epoch 1/1 train_mse=0.004488 val_mse=0.002055
+[issa_probe] epoch 1/1 train_mse=0.004222 val_mse=0.002653
+[issa_probe] epoch 1/1 train_mse=0.004488 val_mse=0.002055
+[issa_probe] epoch 1/1 train_mse=0.004385 val_mse=0.003920
+[issa_probe] epoch 1/1 train_mse=0.004793 val_mse=0.003355
+[issa_probe] epoch 1/1 train_mse=0.004224 val_mse=0.001699
+[issa] iter 6/6  best_fitness=0.001577
+
+[6/9] re-training LSTM with ISSA-best hyper-parameters
+[lstm_issa] epoch 1/10 train_mse=0.002257 val_mse=0.000765
+[lstm_issa] epoch 2/10 train_mse=0.000717 val_mse=0.000723
+[lstm_issa] epoch 3/10 train_mse=0.000720 val_mse=0.000761
+[lstm_issa] epoch 4/10 train_mse=0.000753 val_mse=0.000823
+[lstm_issa] epoch 5/10 train_mse=0.000697 val_mse=0.000661
+[lstm_issa] epoch 6/10 train_mse=0.000703 val_mse=0.000826
+[lstm_issa] epoch 7/10 train_mse=0.000697 val_mse=0.000788
+[lstm_issa] epoch 8/10 train_mse=0.000674 val_mse=0.000754
+[lstm_issa] epoch 9/10 train_mse=0.000686 val_mse=0.000751
+[lstm_issa] epoch 10/10 train_mse=0.000654 val_mse=0.000716
+
+[7/9] computing metrics for every model
+[metrics] best model = ar24
+
+[8/9] LLM explanations on first 100 test rows
+[llm] Qwen2.5-7B-Instruct loaded in 11426.9s on cuda:0 dtype=bfloat16
+  [llm] 10/100 done  (parsed_ok=True fb=False avg_lp=-0.059)
+  [llm] 20/100 done  (parsed_ok=True fb=False avg_lp=-0.085)
+  [llm] 30/100 done  (parsed_ok=False fb=False avg_lp=-0.009)
+  [llm] 40/100 done  (parsed_ok=True fb=False avg_lp=-0.068)
+  [llm] 50/100 done  (parsed_ok=True fb=False avg_lp=-0.075)
+  [llm] 60/100 done  (parsed_ok=True fb=False avg_lp=-0.078)
+  [llm] 70/100 done  (parsed_ok=False fb=False avg_lp=-0.068)
+  [llm] 80/100 done  (parsed_ok=True fb=False avg_lp=-0.116)
+  [llm] 90/100 done  (parsed_ok=True fb=False avg_lp=-0.112)
+  [llm] 100/100 done  (parsed_ok=False fb=False avg_lp=-0.060)
+[llm] total wall time = 11531.2s
+
+[9/9] hallucination detection + QA + report
+[halluc] summary = {
+  "n_explanations": 100,
+  "n_hallucinations": 0,
+  "hallucination_rate_pct": 0.0,
+  "h1_number_match_pct": 100.0,
+  "h2_aqi_match_pct": 100.0,
+  "h3_category_ok_pct": 100.0,
+  "h4_feature_ok_pct": 100.0,
+  "h5_range_ok_pct": 100.0,
+  "h6_confidence_low_pct": 0.0,
+  "mean_avg_logprob": -0.06516839535734481
+}
+[report] written → /scratch/sg41479/AdvSplIoT/results/45030826/final_report.md
+
+[done] all artefacts under: /scratch/sg41479/AdvSplIoT/results/45030826
+
+=================================================================
+  Pipeline complete.
+  Results: /scratch/sg41479/AdvSplIoT/results/45030826
+  Report:  /scratch/sg41479/AdvSplIoT/results/45030826/final_report.md
+=================================================================

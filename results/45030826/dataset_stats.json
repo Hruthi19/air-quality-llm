@@ -1,0 +1,47 @@
+{
+  "n_rows_raw": 43824,
+  "n_rows_clean": 43824,
+  "n_missing_pm25": 2067,
+  "pct_missing_pm25": 0.04716593647316539,
+  "period_start": "2010-01-01 00:00:00",
+  "period_end": "2014-12-31 23:00:00",
+  "feature_cols": [
+    "pm25",
+    "dew",
+    "temp",
+    "pressure",
+    "wind"
+  ],
+  "feature_means": {
+    "pm25": 97.80111354508945,
+    "dew": 1.817246257758306,
+    "temp": 12.448521358159981,
+    "pressure": 1016.4476542533771,
+    "wind": 23.88913951259584
+  },
+  "feature_stds": {
+    "pm25": 91.37642908631796,
+    "dew": 14.433440266136342,
+    "temp": 12.198612789671555,
+    "pressure": 10.26869796157482,
+    "wind": 50.01063466523068
+  },
+  "feature_mins": {
+    "pm25": 0.0,
+    "dew": -40.0,
+    "temp": -19.0,
+    "pressure": 991.0,
+    "wind": 0.45
+  },
+  "feature_maxs": {
+    "pm25": 994.0,
+    "dew": 28.0,
+    "temp": 42.0,
+    "pressure": 1046.0,
+    "wind": 585.6
+  },
+  "train_rows": 31510,
+  "val_rows": 3501,
+  "test_rows": 8753,
+  "lookback": 60
+}

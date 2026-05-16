@@ -1,0 +1,42 @@
+{
+  "run_id": "45030442",
+  "timestamp": "2026-05-08 12:59:54",
+  "hostname": "e4-1",
+  "python": "3.10.4",
+  "platform": "Linux-5.14.0-503.31.1.el9_5.x86_64-x86_64-with-glibc2.34",
+  "device": "cuda",
+  "torch": "2.11.0+cu130",
+  "cuda_available": true,
+  "args": {
+    "csv": "/scratch/sg41479/AdvSplIoT/PRSA_data.csv",
+    "results_dir": "/scratch/sg41479/AdvSplIoT/results/45030442",
+    "lookback": 60,
+    "train_frac": 0.72,
+    "val_frac": 0.08,
+    "epochs_baseline": 10,
+    "epochs_issa": 10,
+    "issa_iters": 6,
+    "issa_pop": 8,
+    "issa_fitness_epochs": 1,
+    "n_explanations": 100,
+    "n_qa_samples": 5,
+    "qa_questions": null,
+    "device": "cuda",
+    "seed": 42,
+    "no_llm": false,
+    "llm_model_path": "/scratch/sg41479/hf-cache/models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28",
+    "llm_cache_dir": "/scratch/sg41479/hf-cache",
+    "llm_dtype": "bfloat16",
+    "llm_max_new_tokens": 320,
+    "llm_temperature": 0.3,
+    "num_tol_pct": 1.0,
+    "logprob_threshold": -2.0,
+    "rf_estimators": 200
+  },
+  "seed": 42,
+  "gpu_name": "NVIDIA B200",
+  "gpu_capability": [
+    10,
+    0
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "best_fitness": 0.0015765278267777334,
+  "best_params": {
+    "hidden_size": 128,
+    "num_layers": 2,
+    "dropout": 0.0,
+    "learning_rate": 0.005,
+    "batch_size": 32
+  },
+  "config": {
+    "n_sparrows": 8,
+    "n_iter": 6,
+    "pd_ratio": 0.2,
+    "sd_ratio": 0.2,
+    "safety_thr": 0.6,
+    "levy_alpha": 1.5,
+    "seed": 42
+  }
+}
